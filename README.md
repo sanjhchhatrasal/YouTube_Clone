@@ -95,5 +95,3 @@ This project is licensed under the MIT License. See the [LICENSE](LICENSE) file 
 ---
 
 ### 🌟 Don't forget to star this repo if you like it! 🌟
-```
-
