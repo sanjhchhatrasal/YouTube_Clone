@@ -30,12 +30,6 @@ src/
 └── App.js             # Main entry point of the application
 ```
 
-## 📸 Screenshots
-
-| Home Page | Video Playback |
-|-----------|----------------|
-| ![Home Page](path/to/homepage-screenshot.png) | ![Video Playback](path/to/video-playback-screenshot.png) |
-
 ## 💻 Getting Started
 
 ### Prerequisites
