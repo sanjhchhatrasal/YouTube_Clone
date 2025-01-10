@@ -21,7 +21,6 @@ A fully responsive YouTube clone built using **React**, **Redux Toolkit**, and *
 
 ## 📂 Project Structure
 
-```plaintext
 src/
 ├── components/        # Reusable React components
 ├── features/          # Redux slices for state management
