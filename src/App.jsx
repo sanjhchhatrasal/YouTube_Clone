@@ -6,7 +6,7 @@ import Sidebar from './Components/Sidebar'
 function App() {
 
   return (
-    <div className='h-[100vh] w-full bg-zinc-900 text-white'>
+    <div className='w-full bg-zinc-900 text-white'>
       <Navbar />  
       <div className='flex'>
         <Sidebar />

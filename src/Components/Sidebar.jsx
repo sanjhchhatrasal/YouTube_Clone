@@ -157,8 +157,8 @@ const Sidebar = () => {
 
   return (
    <>
-    <div className={`${sidebarOpen ? 'w-[17%]' : 'w-[10%]'}  mt-20 bg-zinc-900 px-6`}>
-      {sidebarOpen ? <div className='overflow-y-scroll overflow-x-hidden h-[89vh] relative left-0'>
+    <div className={`${sidebarOpen ? 'w-[17%]' : 'w-[8%]'} h-[93vh] fixed pt-3  mt-16 bg-zinc-900 px-6`}>
+      {sidebarOpen ? <div className='scrollbar scrollbar-thumb-zinc-700 scrollbar-track-zinc-900 overflow-y-scroll overflow-x-hidden h-[92vh] relative left-0'>
       <div className='border-b-[1px] border-zinc-300 py-4'>
       {homeData.map((item, index) => {
         return <div key={index} className='flex items-start gap-4'>
@@ -170,8 +170,8 @@ const Sidebar = () => {
       <div className='border-b-[1px] border-zinc-300 py-4'>
         <h1 className='text-lg mb-3 flex gap-3 items-center'>You <span className='text-xl'><icons.MdKeyboardArrowRight /></span></h1>
         {youData.map((item, index) => {
-          return <div>
-            <div key={index} className='flex items-start gap-4'>
+          return <div key={index}>
+            <div className='flex items-start gap-4'>
             <h1 className='text-[1.35rem] mb-4'>{item.logo}</h1>
             <h1>{item.title}</h1>
           </div>
@@ -192,8 +192,8 @@ const Sidebar = () => {
       <div className='border-b-[1px] border-zinc-300 py-4'>
         <h1 className='text-lg mb-3 flex gap-3 items-center'>Explore <span className='text-xl'><icons.MdKeyboardArrowRight /></span></h1>
         {exploreData.map((item, index) => {
-          return <div>
-            <div key={index} className='flex items-start gap-4'>
+          return <div key={index}>
+            <div className='flex items-start gap-4'>
             <h1 className='text-[1.35rem] mb-4'>{item.logo}</h1>
             <h1>{item.title}</h1>
           </div>
@@ -208,7 +208,7 @@ const Sidebar = () => {
       </div>
       })}
       </div>
-      </div> :   <div className='w-[6%] mt-20  px-6'>
+      </div> :   <div className='w-[6%]  mt-20  px-6'>
     {toggleData.map((item, index) => {
       return <div key={index} className='flex flex-col items-center justify-center mb-4'>
         <h1 className='text-[1.3rem] text-center mb-2'>{item.logo}</h1>
