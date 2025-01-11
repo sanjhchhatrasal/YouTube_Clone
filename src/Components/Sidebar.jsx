@@ -158,7 +158,7 @@ const Sidebar = () => {
   return (
    <>
     <div className={`${sidebarOpen ? 'w-[17%]' : 'w-[8%]'} h-[93vh] fixed pt-3  mt-16 bg-zinc-900 px-6`}>
-      {sidebarOpen ? <div className='scrollbar scrollbar-thumb-zinc-700 scrollbar-track-zinc-900 overflow-y-scroll overflow-x-hidden h-[92vh] relative left-0'>
+      {sidebarOpen ? <div className='scrollbar-thin scrollbar-thumb-zinc-600 scrollbar-track-zinc-900 scrollbar-thumb-rounded-full overflow-y-scroll overflow-x-hidden h-[92vh] relative left-0'>
       <div className='border-b-[1px] border-zinc-300 py-4'>
       {homeData.map((item, index) => {
         return <div key={index} className='flex items-start gap-4'>
