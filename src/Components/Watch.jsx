@@ -17,9 +17,8 @@ const Watch = () => {
 
   const getYoutubeVideo = async() => {
     try{
-      const res = await axios.get(`https://youtube.googleapis.com/youtube/v3/channels?part=snippet%2CcontentDetails%2Cstatistics&id=${item.snippet.channelId}&key=${API_KEY} `)
-      setytDp(res.data.items[0].snippet.thumbnails.high.url)
-      console.log(res)
+      const resData = await axios.get(`https://youtube.googleapis.com/youtube/v3/videos?part=snippet%2CcontentDetails%2Cstatistics&${vidId}&key=${API_KEY}`)
+      console.log(resData)
     } catch(err){
       console.log(err)
     }
