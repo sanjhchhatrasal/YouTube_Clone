@@ -14,7 +14,7 @@ const Feed = () => {
           <Videos />
         </div>
       ) : (
-        <div className="w-[100%] min-h-[100vh] bg-zinc-900  mt-16 ml-[10%]">
+        <div className="scrollbar scrollbar-thumb-zinc-600 scrollbar-track-zinc-900 overflow-y-scroll w-[100%] h-[91.3vh] bg-zinc-900  mt-16 ml-[10%]">
           <ButtonList />
           <Videos />
         </div>

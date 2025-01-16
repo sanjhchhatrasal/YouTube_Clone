@@ -1,7 +1,7 @@
 
-import Feed from './Components/Feed'
 import Navbar from './Components/Navbar'
 import Sidebar from './Components/Sidebar'
+import Routing from './Components/utils/Routing'
 
 function App() {
 
@@ -10,8 +10,10 @@ function App() {
       <Navbar />  
       <div className='flex'>
         <Sidebar />
-        <Feed />
+        {/* <Feed /> */}
+        <Routing />
       </div>
+      
        
     </div>
   )

@@ -5,6 +5,7 @@ import { AiOutlinePlus } from "react-icons/ai";
 import { IoIosNotificationsOutline } from "react-icons/io";
 import {useDispatch} from 'react-redux'
 import { toggleSidebar } from '../Features/SidebarSlice';
+import { Link } from 'react-router-dom';
 
 const Navbar = () => {
 
@@ -19,9 +20,9 @@ const Navbar = () => {
      <div className='h-16 w-full bg-zinc-900 flex  items-center justify-between px-5 text-white'>
         <div className='flex gap-6 items-center'>
             <GiHamburgerMenu onClick={toggleHandler} className='text-2xl text-white cursor-pointer'/>
-            <div>
+            <Link to="/">
                 <img className='w-24 cursor-pointer' src="https://imgs.search.brave.com/3Ndi-yWkEfFIqB1hp23kYybjweXEKi993-DZvX7_wow/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9mcmVl/cG5nbG9nby5jb20v/aW1hZ2VzL2FsbF9p/bWcveW91dHViZS1s/b2dvLXBuZy1pbWFn/ZS5wbmc" alt="" />
-            </div>
+            </Link>
         </div>
         <div className='flex items-center rounded-full bg-zinc-900 px-2 py-1 overflow-hidden border-[1px] border-zinc-600'>
             <input type="text" className='w-[30vw] h-8 px-3 bg-zinc-900 outline-none' placeholder='Search'/>
