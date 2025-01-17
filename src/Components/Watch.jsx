@@ -142,8 +142,8 @@ const Watch = () => {
       ) : (
         <>
         <div className="scrollbar scrollbar-thumb-zinc-600 scrollbar-track-zinc-900 overflow-y-scroll w-[100%] h-[91.3vh] bg-zinc-900  mt-20 ml-[10%]">
-          <div className="h-[85vh] w-full">
-            <div className="h-[65vh] w-full rounded-xl bg-zinc-800 overflow-hidden">
+        <div className="min-h-[90vh] w-[55vw]">
+            <div className="h-[65vh] w-[55vw] rounded-xl bg-zinc-800 overflow-hidden">
                <iframe
             className="h-full w-full object-cover"
             src={`https://www.youtube.com/embed/${vidId}?autoplay=1`}
@@ -197,6 +197,19 @@ const Watch = () => {
                   Download
                 </button>
               </div>
+            </div>
+            <div>
+              <div className="p-3 mt-5 rounded-lg bg-zinc-800 min-h-28 mb-4">
+               <div className="flex gap-3 font-semibold">
+               <h6>{videoData?.statistics?.viewCount} views</h6>
+               <h6>{formatDate(videoData?.snippet?.publishedAt)}</h6>
+               </div>
+               <p className="text-sm">{videoData?.snippet?.description}</p>
+              </div>
+              
+            </div>
+            <div className="min-h-32 mt-3">
+              <h6 className="text-xl font-semibold">{videoData?.statistics?.commentCount} Comments</h6>
             </div>
           </div>
         </div>
