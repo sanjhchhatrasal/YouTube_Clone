@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import * as icons from './Imports'
 import { useSelector } from 'react-redux'
+import { Link } from 'react-router-dom'
 
 
 const homeData = [
@@ -161,20 +162,20 @@ const Sidebar = () => {
       {sidebarOpen ? <div className='scrollbar-thin scrollbar-thumb-zinc-600 scrollbar-track-zinc-900 scrollbar-thumb-rounded-full overflow-y-scroll overflow-x-hidden h-[92vh] relative left-0'>
       <div className='border-b-[1px] border-zinc-300 py-4'>
       {homeData.map((item, index) => {
-        return <div key={index} className='flex items-start gap-4'>
+        return <Link to={'/'} key={index} className='flex items-start gap-4 hover:bg-zinc-800 rounded-lg px-2 py-1'>
         <h1 className='text-xl mb-3'>{item.logo}</h1>
         <h1>{item.title}</h1>
-      </div>
+      </Link>
       })}
       </div>
       <div className='border-b-[1px] border-zinc-300 py-4'>
         <h1 className='text-lg mb-3 flex gap-3 items-center'>You <span className='text-xl'><icons.MdKeyboardArrowRight /></span></h1>
         {youData.map((item, index) => {
           return <div key={index}>
-            <div className='flex items-start gap-4'>
-            <h1 className='text-[1.35rem] mb-4'>{item.logo}</h1>
+            <Link className='flex items-start gap-3 hover:bg-zinc-800 rounded-lg px-2 py-1'>
+            <h1 className='text-[1.4rem] mb-4'>{item.logo}</h1>
             <h1>{item.title}</h1>
-          </div>
+          </Link>
           </div>
         })}
       </div>
@@ -182,10 +183,10 @@ const Sidebar = () => {
         <h1 className='text-lg mb-3 flex gap-3 items-center'>Subscriptions <span className='text-xl'><icons.MdKeyboardArrowRight /></span></h1>
         {subscriptionData.map((item, index) => {
           return <div key={index}>
-            <div className='flex items-start gap-4'>
+            <Link className='flex items-start gap-4 hover:bg-zinc-800 rounded-lg px-2 py-1'>
             <h1 className='text-[1.35rem] mb-4'>{item.logo}</h1>
             <h1>{item.title}</h1>
-          </div>
+          </Link>
           </div>
         })}
       </div>
@@ -193,19 +194,19 @@ const Sidebar = () => {
         <h1 className='text-lg mb-3 flex gap-3 items-center'>Explore <span className='text-xl'><icons.MdKeyboardArrowRight /></span></h1>
         {exploreData.map((item, index) => {
           return <div key={index}>
-            <div className='flex items-start gap-4'>
+            <Link className='flex items-start gap-4 hover:bg-zinc-800 rounded-lg px-2 py-1'>
             <h1 className='text-[1.35rem] mb-4'>{item.logo}</h1>
             <h1>{item.title}</h1>
-          </div>
+          </Link>
           </div>
         })}
       </div>
       <div className=' py-4'>
       {settingData.map((item, index) => {
-        return <div key={index} className='flex items-start gap-4'>
+        return <Link key={index} className='flex items-start gap-4 hover:bg-zinc-800 rounded-lg px-2 py-1'>
         <h1 className='text-xl mb-3'>{item.logo}</h1>
         <h1>{item.title}</h1>
-      </div>
+      </Link>
       })}
       </div>
       </div> :   <div className='w-[6%]  mt-20  px-6'>

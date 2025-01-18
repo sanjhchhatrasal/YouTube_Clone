@@ -3,10 +3,16 @@ import { useSelector } from "react-redux";
 import { PiShareFatLight } from "react-icons/pi";
 import { LiaDownloadSolid } from "react-icons/lia";
 import { AiOutlineLike } from "react-icons/ai";
+import { MdKeyboardArrowDown } from "react-icons/md";
+import { BsThreeDotsVertical } from "react-icons/bs";
+import { RxCross1 } from "react-icons/rx";
+import { TfiHeart } from "react-icons/tfi";
+import { LuSendHorizontal } from "react-icons/lu";
 import { API_KEY, YOUTUBE_VIDEO_API } from "../Constants/constants";
 import { Link, useSearchParams } from "react-router-dom";
 import axios from "axios";
 import Sidevideo from "./Sidevideo";
+import LiveChat from "./LiveChat";
 
 const Watch = () => {
   const sidebar = useSelector((store) => store.sidebar.isSidebarOpen);
@@ -61,7 +67,7 @@ const Watch = () => {
     <>
       {sidebar ? (
        <>
-        <div className=" w-[60%] bg-zinc-900 h-[91.3vh]  mt-20 ml-[17.5%]">
+        <div className=" w-[57%] bg-zinc-900 h-[91.3vh] mt-20 ml-[17.5%]">
           <div className="min-h-[90vh] w-[55vw]">
             <div className="h-[65vh] w-[55vw] rounded-xl bg-zinc-800 overflow-hidden">
                <iframe
@@ -133,15 +139,45 @@ const Watch = () => {
             </div>
           </div>
         </div>
-        <div className="flex flex-col flex-shrink-0 flex-wrap mt-20 w-[26%] ml-4">
+        <div className="flex flex-col w-[24%]">
+        <div className="w-full h-[75vh] rounded-lg border-[1px] border-zinc-400 mt-20 ml-4 overflow-hidden">
+          <div className="w-full h-12 border-b-[1px] border-zinc-400 flex items-center justify-between px-4">
+            <h6 className="flex items-center gap-1">Top Chat <span className="text-2xl"><MdKeyboardArrowDown /></span></h6>
+            <div className="flex items-center gap-4">
+              <span className="text-xl"><BsThreeDotsVertical /></span>
+              <span className="text-xl"><RxCross1 /></span>
+            </div>
+          </div>
+          <div className="w-full h-[60vh] overflow-y-auto overflow-x-hidden mb-2 mt-1">
+            <LiveChat />
+            <LiveChat />
+            <LiveChat />
+            <LiveChat />
+            <LiveChat />
+            <LiveChat />
+            <LiveChat />
+            <LiveChat />
+            <LiveChat />
+            <LiveChat />
+            <LiveChat />
+          </div>
+          <div className="w-full h-14 border-t-[1px] border-zinc-400 flex items-center gap-4 px-5">
+            <input className="outline-none w-[85%] bg-zinc-800 rounded-full py-2 px-3 " type="text" placeholder="Chat..." />
+            <div className="w-9 h-9 rounded-full bg-zinc-800 flex items-center justify-center">
+              <span><LuSendHorizontal /></span>
+            </div>
+          </div>
+        </div>
+        <div className="flex flex-col flex-shrink-0 flex-wrap mt-5 w-full ml-4 ">
         {videos.map((item) => <Link to={`/watch?v=${item.id}`} key={item.id}><Sidevideo item={item}/></Link>
        )}
+        </div>
         </div>
        </>
         
       ) : (
         <>
-        <div className="scrollbar scrollbar-thumb-zinc-600 scrollbar-track-zinc-900 overflow-y-scroll w-[100%] h-[91.3vh] bg-zinc-900  mt-20 ml-[10%]">
+        <div className=" w-[100%] h-[91.3vh] bg-zinc-900  mt-20 ml-[10%]">
         <div className="min-h-[90vh] w-[55vw]">
             <div className="h-[65vh] w-[55vw] rounded-xl bg-zinc-800 overflow-hidden">
                <iframe
