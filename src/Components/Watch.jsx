@@ -1,23 +1,25 @@
 import React, { useEffect, useState } from "react";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { PiShareFatLight } from "react-icons/pi";
 import { LiaDownloadSolid } from "react-icons/lia";
 import { AiOutlineLike } from "react-icons/ai";
 import { MdKeyboardArrowDown } from "react-icons/md";
 import { BsThreeDotsVertical } from "react-icons/bs";
 import { RxCross1 } from "react-icons/rx";
-import { TfiHeart } from "react-icons/tfi";
 import { LuSendHorizontal } from "react-icons/lu";
 import { API_KEY, YOUTUBE_VIDEO_API } from "../Constants/constants";
 import { Link, useSearchParams } from "react-router-dom";
 import axios from "axios";
 import Sidevideo from "./Sidevideo";
 import LiveChat from "./LiveChat";
+import { setMsg } from "../Features/LivechatSlice";
 
 const Watch = () => {
   const sidebar = useSelector((store) => store.sidebar.isSidebarOpen);
+  const dispatch = useDispatch();
 
   const [videoData, setVideoData] = useState("")
+  const [input, setInput] = useState("")
 
   const [searchParams] = useSearchParams();
   const vidId = searchParams.get('v');
@@ -46,6 +48,11 @@ const Watch = () => {
     useEffect(() => {
       getYoutubeVideo()
     }, [])
+
+    const sendMsg = () => {
+      dispatch(setMsg({name: "Ayush", message: input}));
+      setInput("")
+    }
 
     const [videos, setVideos] = useState([]);
 
@@ -148,23 +155,13 @@ const Watch = () => {
               <span className="text-xl"><RxCross1 /></span>
             </div>
           </div>
-          <div className="w-full h-[60vh] overflow-y-auto overflow-x-hidden mb-2 mt-1">
-            <LiveChat />
-            <LiveChat />
-            <LiveChat />
-            <LiveChat />
-            <LiveChat />
-            <LiveChat />
-            <LiveChat />
-            <LiveChat />
-            <LiveChat />
-            <LiveChat />
-            <LiveChat />
+          <div className="w-full h-[59vh] overflow-y-auto overflow-x-hidden mb-1 mt-1">
+            <LiveChat vidId = {vidId} />
           </div>
           <div className="w-full h-14 border-t-[1px] border-zinc-400 flex items-center gap-4 px-5">
-            <input className="outline-none w-[85%] bg-zinc-800 rounded-full py-2 px-3 " type="text" placeholder="Chat..." />
+            <input value={input} onChange={(e) => setInput(e.target.value)} className="outline-none w-[85%] bg-zinc-800 rounded-full py-2 px-3 " type="text" placeholder="Chat..." />
             <div className="w-9 h-9 rounded-full bg-zinc-800 flex items-center justify-center">
-              <span><LuSendHorizontal /></span>
+              <span className="cursor-pointer" onClick={sendMsg}><LuSendHorizontal /></span>
             </div>
           </div>
         </div>

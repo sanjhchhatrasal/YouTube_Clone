@@ -33,7 +33,7 @@ const VideoCard = ({item}) => {
     <>
       {sidebar ? (
         <div className="h-[23vw] w-[25vw]  overflow-hidden">
-            <div className="h-[60%] rounded-lg w-full bg-red-200 overflow-hidden">
+            <div className="h-[60%] rounded-lg w-full bg-zinc-800 overflow-hidden">
                 <img className="h-full w-full hover:scale-105 transition ease-out duration-150 cursor-pointer object-cover" src={item.snippet.thumbnails.high.url} alt="" />
             </div>
             <div className="flex gap-3 py-3 items-start">
