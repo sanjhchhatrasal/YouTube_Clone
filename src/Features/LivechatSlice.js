@@ -9,7 +9,9 @@ const chatSlice = createSlice({
     initialState,
     reducers:{
         setMsg: (state, action) => {
-            state.message.splice(10, 1)
+            if (state.message.length >= 30){
+                state.message.shift();
+            }
             state.message.push(action.payload)
         },
         clearMsg: (state) => {
