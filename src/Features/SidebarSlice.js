@@ -1,7 +1,9 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
-    isSidebarOpen: true
+    isSidebarOpen: true,
+    videos: [],
+    category: "All"
 }
 
 export const sidebarSlice = createSlice({
@@ -10,10 +12,16 @@ export const sidebarSlice = createSlice({
     reducers:{
         toggleSidebar: (state, action) => {
             state.isSidebarOpen = !state.isSidebarOpen;
+        },
+        setHomeVideo: (state, action) => {
+            state.videos = action.payload
+        },
+        setCategory: (state, action) => {
+            state.category = action.payload
         }
     }
 })
 
-export const {toggleSidebar} = sidebarSlice.actions
+export const {toggleSidebar, setHomeVideo, setCategory} = sidebarSlice.actions
 
 export default sidebarSlice.reducer
