@@ -16,7 +16,6 @@ import { SEARCH_SUGGESTION_API } from "../Constants/constants";
 const Navbar = () => {
   const dispatch = useDispatch();
   const [input, setinput] = useState("");
-  const [suggestion, setsuggestion] = useState(false)
   const { searchSuggestions } = useSelector((store) => store.sidebar);
 
   const toggleHandler = () => {
@@ -36,10 +35,6 @@ const Navbar = () => {
       console.log(err);
     }
   };
-
-  const openSuggestion = () => {
-    setsuggestion(true)
-  }
 
   useEffect(() => {
     searchSuggestion();
@@ -65,7 +60,6 @@ const Navbar = () => {
           <input
             value={input}
             onChange={(e) => setinput(e.target.value)}
-            onFocus={openSuggestion}
             type="text"
             className="w-[30vw] h-8 px-3 bg-zinc-900 outline-none"
             placeholder="Search"
@@ -96,7 +90,7 @@ const Navbar = () => {
           </div>
         </div>
       </div>
-     {(suggestion && searchSuggestion.length !== 0) &&  <div className="flex flex-col gap-2 absolute left-[31%] rounded-xl p-6 bg-zinc-800 w-[32%]">
+     {input !== "" &&  <div className="flex flex-col gap-2 absolute left-[31%] rounded-xl p-6 bg-zinc-800 w-[32%]">
         {searchSuggestions.map((item, index) => {
           return (
             <p

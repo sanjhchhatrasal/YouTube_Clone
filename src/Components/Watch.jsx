@@ -13,6 +13,7 @@ import axios from "axios";
 import Sidevideo from "./Sidevideo";
 import LiveChat from "./LiveChat";
 import { setMsg } from "../Features/LivechatSlice";
+import Comments from "./Comments";
 
 const Watch = () => {
   const sidebar = useSelector((store) => store.sidebar.isSidebarOpen);
@@ -20,6 +21,8 @@ const Watch = () => {
 
   const [videoData, setVideoData] = useState("")
   const [input, setInput] = useState("")
+  const [videos, setVideos] = useState([]);
+  const [comments, setComments] = useState([]);
 
   const [searchParams] = useSearchParams();
   const vidId = searchParams.get('v');
@@ -38,7 +41,7 @@ const Watch = () => {
   const getYoutubeVideo = async() => {
     try{
       const resData = await axios.get(`https://youtube.googleapis.com/youtube/v3/videos?part=snippet%2CcontentDetails%2Cstatistics&id=${vidId}&key=${API_KEY}`)
-      console.log(resData)
+      // console.log(resData)
       setVideoData(resData?.data?.items[0])
     } catch(err){
       console.log(err)
@@ -50,16 +53,14 @@ const Watch = () => {
     }, [])
 
     const sendMsg = () => {
-      dispatch(setMsg({name: "Ayush", message: input}));
+      dispatch(setMsg({name: "Sanjh", message: input}));
       setInput("")
     }
-
-    const [videos, setVideos] = useState([]);
 
     const fetchVideo = async () => {
       try {
         const res = await axios.get(YOUTUBE_VIDEO_API);
-        console.log(res?.data?.items);
+        // console.log(res?.data?.items);
         setVideos(res?.data?.items);
       } catch (err) {
         console.log(err);
@@ -70,11 +71,25 @@ const Watch = () => {
       fetchVideo();
     }, []);
 
+    const fetchComments = async() => {
+      try{
+          const res = await axios.get(`https://www.googleapis.com/youtube/v3/commentThreads?key=${API_KEY}&textFormat=plainText&part=snippet&videoId=${vidId}&maxResults=100`)
+          console.log(res?.data?.items)
+          setComments(res?.data?.items)
+          
+      } catch(err){
+          console.log(err)
+      }
+  }
+  useEffect(() => {
+      fetchComments()
+  }, [])
+
   return (
     <>
       {sidebar ? (
        <>
-        <div className=" w-[57%] bg-zinc-900 h-[91.3vh] mt-20 ml-[17.5%]">
+        <div className=" w-[57%] bg-zinc-900 h-[91.3vh] mt-20 ml-[18%]">
           <div className="min-h-[90vh] w-[55vw]">
             <div className="h-[65vh] w-[55vw] rounded-xl bg-zinc-800 overflow-hidden">
                <iframe
@@ -141,12 +156,17 @@ const Watch = () => {
               </div>
               
             </div>
-            <div className="min-h-32 mt-3">
+            <div className="min-h-[100vh] mt-3 p-5 ">
               <h6 className="text-xl font-semibold">{videoData?.statistics?.commentCount} Comments</h6>
+              <div className="mt-4">
+              {comments.map((commentItem) => {
+                return <Comments item={commentItem} />
+              })}
+              </div>
             </div>
           </div>
         </div>
-        <div className="flex flex-col w-[24%]">
+        <div className="flex flex-col w-[23%]">
         <div className="w-full h-[75vh] rounded-lg border-[1px] border-zinc-400 mt-20 ml-4 overflow-hidden">
           <div className="w-full h-12 border-b-[1px] border-zinc-400 flex items-center justify-between px-4">
             <h6 className="flex items-center gap-1">Top Chat <span className="text-2xl"><MdKeyboardArrowDown /></span></h6>
@@ -174,9 +194,9 @@ const Watch = () => {
         
       ) : (
         <>
-        <div className=" w-[100%] h-[91.3vh] bg-zinc-900  mt-20 ml-[10%]">
-        <div className="min-h-[90vh] w-[55vw]">
-            <div className="h-[65vh] w-[55vw] rounded-xl bg-zinc-800 overflow-hidden">
+        <div className=" w-[63%] h-[91.3vh] bg-zinc-900  mt-20 ml-[10%]">
+        <div className="min-h-[90vh]  w-[60vw]">
+            <div className="h-[65vh] w-[60vw] rounded-xl bg-zinc-800 overflow-hidden">
                <iframe
             className="h-full w-full object-cover"
             src={`https://www.youtube.com/embed/${vidId}?autoplay=1`}
@@ -241,14 +261,39 @@ const Watch = () => {
               </div>
               
             </div>
-            <div className="min-h-32 mt-3">
+            <div className="min-h-[100vh] mt-3 p-5 ">
               <h6 className="text-xl font-semibold">{videoData?.statistics?.commentCount} Comments</h6>
+              <div className="mt-4">
+              {comments.map((commentItem) => {
+                return <Comments item={commentItem} />
+              })}
+              </div>
             </div>
           </div>
         </div>
-        <div className="flex flex-col flex-shrink-0 flex-wrap mt-20 w-[26%] ml-4">
+        <div className="flex flex-col  w-[25%]">
+        <div className="w-full h-[75vh] rounded-lg border-[1px] border-zinc-400 mt-20 ml-4 overflow-hidden">
+          <div className="w-full h-12 border-b-[1px] border-zinc-400 flex items-center justify-between px-4">
+            <h6 className="flex items-center gap-1">Top Chat <span className="text-2xl"><MdKeyboardArrowDown /></span></h6>
+            <div className="flex items-center gap-4">
+              <span className="text-xl"><BsThreeDotsVertical /></span>
+              <span className="text-xl"><RxCross1 /></span>
+            </div>
+          </div>
+          <div className="w-full h-[59vh] overflow-y-auto overflow-x-hidden mb-1 mt-1">
+            <LiveChat vidId = {vidId} />
+          </div>
+          <div className="w-full h-14 border-t-[1px] border-zinc-400 flex items-center gap-4 px-5">
+            <input value={input} onChange={(e) => setInput(e.target.value)} className="outline-none w-[85%] bg-zinc-800 rounded-full py-2 px-3 " type="text" placeholder="Chat..." />
+            <div className="w-9 h-9 rounded-full bg-zinc-800 flex items-center justify-center">
+              <span className="cursor-pointer" onClick={sendMsg}><LuSendHorizontal /></span>
+            </div>
+          </div>
+        </div>
+        <div className="flex flex-col flex-shrink-0 flex-wrap mt-5 w-full ml-4 ">
         {videos.map((item) => <Link to={`/watch?v=${item.id}`} key={item.id}><Sidevideo item={item}/></Link>
        )}
+        </div>
         </div>
         </>
       )}
