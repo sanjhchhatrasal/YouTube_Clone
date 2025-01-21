@@ -1,13 +1,18 @@
 import React, { useState } from 'react'
+import { useDispatch } from 'react-redux'
 import { NavLink } from 'react-router-dom'
+import { setCategory } from '../Features/SidebarSlice'
 
-const btnData = ["All", "Javascript", "React", "Web Development", "Live", "Music", "Podcasts", "AI", "Recently uploaded", "Watched", "Logical reasoning", "Comedy", "Thriller", "Cricket", "TMKOC", "Backend"]
+const btnData = ["All", "Javascript", "React", "Web Development", "TMKOC",  "Live", "Music", "Podcasts", "AI", "Recently uploaded", "Vlogs", "Logical reasoning", "Comedy", "Thriller", "Cricket", "Backend"]
 
 const ButtonList = () => {
   const [active, setActive] = useState("All")
 
+  const dispatch = useDispatch()
+
   const videoByTag = (tag) => {
     if(active !== tag){
+      dispatch(setCategory(tag))
       setActive(tag)
     }
   }
