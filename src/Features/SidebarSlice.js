@@ -12,7 +12,8 @@ export const sidebarSlice = createSlice({
     initialState,
     reducers:{
         toggleSidebar: (state, action) => {
-            state.isSidebarOpen = !state.isSidebarOpen;
+            // state.isSidebarOpen = !state.isSidebarOpen;
+            state.isSidebarOpen = action.payload !== undefined ? action.payload : !state.isSidebarOpen;
         },
         setHomeVideo: (state, action) => {
             state.videos = action.payload

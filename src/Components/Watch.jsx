@@ -74,7 +74,7 @@ const Watch = () => {
     const fetchComments = async() => {
       try{
           const res = await axios.get(`https://www.googleapis.com/youtube/v3/commentThreads?key=${API_KEY}&textFormat=plainText&part=snippet&videoId=${vidId}&maxResults=100`)
-          console.log(res?.data?.items)
+          // console.log(res?.data?.items)
           setComments(res?.data?.items)
           
       } catch(err){
@@ -194,9 +194,9 @@ const Watch = () => {
         
       ) : (
         <>
-        <div className=" lg:w-[63%] lg:h-[91.3vh] w-[100%] bg-zinc-900  lg:mt-20 mt-8 ml-[10%] lg:ml-[8%]">
-        <div className="min-h-[90vh]  lg:w-[60vw] w-[92%]">
-            <div className="lg:h-[65vh] lg:w-[60vw] h-[35vh] w-full rounded-xl bg-zinc-800 overflow-hidden">
+        <div className=" lg:w-[63%] lg:h-[91.3vh] w-[98%] bg-zinc-900  lg:mt-20 mt-8 mx-1 lg:ml-[8%]">
+        <div className="min-h-[90vh]  lg:w-[60vw] w-[100%]">
+            <div className="lg:h-[65vh] lg:w-[60vw] h-[35vh] w-full lg:rounded-xl bg-zinc-800 overflow-hidden">
                <iframe
             className="h-full w-full object-cover"
             src={`https://www.youtube.com/embed/${vidId}?autoplay=1`}
@@ -207,44 +207,44 @@ const Watch = () => {
             allowFullScreen
           ></iframe>
             </div>
-            <h1 className="lg:text-[1.3rem] text-xs lg:pt-3 pt-1 font-semibold">
+            <h1 className="lg:text-[1.3rem] text-md lg:pt-3 pt-1 font-semibold">
               {videoData?.snippet?.title}
             </h1>
-            <div className="flex items-start lg:mt-2 lg:gap-2 gap-1 lg:pt-3 pt-2 lg:w-[55vw] w-full">
-              <div className="flex lg:gap-2 gap-1 lg:w-[18vw] w-[25%] ">
-                <div className="lg:h-12 lg:w-12 h-8 w-8 rounded-full overflow-hidden bg-zinc-700">
+            <div className="flex items-start lg:mt-2 lg:gap-2 gap-1 lg:pt-3 pt-2 lg:w-[55vw] w-full ">
+              <div className="flex gap-2 lg:w-[18vw] w-[60%] ">
+                <div className="lg:h-12 lg:w-12 h-9 w-9 rounded-full overflow-hidden bg-zinc-700">
                     <img className="h-full w-full object-cover" src="https://imgs.search.brave.com/u3FUfiEc_iDQip6_Xv-rOV15GBFN6hsH_zAqDeu9Xig/rs:fit:500:0:0:0/g:ce/aHR0cHM6Ly9tZWRp/YS5nZXR0eWltYWdl/cy5jb20vaWQvODE4/MDIxMTgvcGhvdG8v/Y2xvc2V1cC1vZi1p/bWctZm91bmRlci1h/bmQtY2VvLW1hcmst/bWNjb3JtYWNrLWxp/Z29uaWVyLXBhLTgt/MTQtMTk2NS5qcGc_/cz02MTJ4NjEyJnc9/MCZrPTIwJmM9YUNj/ZExpNjE4b19qSjNC/WjN4VTZyZGN6T25n/NmxmVXZHZlhIUVRx/RC1YST0" alt="" />
                 </div>
-                <div className="w-[15vw]">
-                  <h6 className="lg:text-[1rem] text-[0.5rem] font-semibold">{videoData?.snippet?.channelTitle}</h6>
-                  <p className="lg:text-xs text-[0.5rem] text-gray-400 font-semibold">
-                    22.6k subscribers
+                <div className="w-[75%]">
+                  <h6 className="lg:text-[1rem] text-[0.85rem] font-semibold">{videoData?.snippet?.channelTitle}</h6>
+                  <p className="lg:text-xs text-[0.7rem] text-gray-400 font-semibold">
+                    22.6k 
                   </p>
                 </div>
               </div>
-              <div className="flex items-center lg:gap-2 gap-1 lg:w-[10vw] w-[12%] ">
-                <button className="lg:px-4 lg:py-2 p-[0.2rem] lg:text-[1rem] text-[0.5rem] rounded-full font-semibold bg-zinc-700 hover:bg-zinc-600">
+              <div className="flex items-center lg:gap-2 gap-1 lg:w-[10vw] lg:mt-0 mt-14 w-[15%] lg:ml-0 -ml-56 ">
+                <button className="lg:px-4 lg:py-2 px-2 py-1 lg:text-[1rem] text-[0.75rem] rounded-full font-semibold bg-zinc-700 hover:bg-zinc-600">
                   Join
                 </button>
-                <button className="lg:px-4 lg:py-2 p-[0.2rem] lg:text-[1rem] text-[0.5rem] rounded-full font-semibold bg-slate-200 hover:bg-slate-300 text-zinc-800">
+                <button className="lg:px-4 lg:py-2 px-2 py-1 lg:text-[1rem] text-[0.75rem] rounded-full font-semibold bg-slate-200 hover:bg-slate-300 text-zinc-800">
                   Subscribe
                 </button>
               </div>
-              <div className="flex items-center lg:gap-2 gap-[0.15rem] lg:w-[22vw] w-[30%]  lg:ml-20 ml-[3.3rem]">
-                <button className="lg:px-4 lg:py-2 p-1 lg:text-[1rem] text-[0.5rem] rounded-full font-semibold bg-zinc-700 hover:bg-zinc-600 flex items-center gap-1">
-                  <span className="lg:text-lg text-[0.5rem]">
+              <div className="flex items-center lg:gap-2 gap-1 lg:mt-0 mt-14 lg:w-[22vw] w-[35%] lg:ml-20 ml-16">
+                <button className="lg:px-4 lg:py-2 px-2 py-1 lg:text-[1rem] text-[0.75rem] rounded-full font-semibold bg-zinc-700 hover:bg-zinc-600 flex items-center gap-1">
+                  <span className="lg:text-lg text-[0.75rem]">
                     <AiOutlineLike />
                   </span>
                    {videoData?.statistics?.likeCount}
                 </button>
-                <button className="lg:px-4 lg:py-2 p-1 lg:text-[1rem] text-[0.5rem] rounded-full font-semibold bg-zinc-700 hover:bg-zinc-600 flex items-center gap-1">
-                  <span className="lg:text-lg text-[0.5rem]">
+                <button className="lg:px-4 lg:py-2 px-2 py-1 lg:text-[1rem] text-[0.75rem] rounded-full font-semibold bg-zinc-700 hover:bg-zinc-600 flex items-center gap-1">
+                  <span className="lg:text-lg text-[0.75rem]">
                     <PiShareFatLight />
                   </span>
                   Share
                 </button>
-                <button className="lg:px-4 lg:py-2 p-1 lg:text-[1rem] text-[0.5rem] rounded-full font-semibold bg-zinc-700 hover:bg-zinc-600 flex items-center gap-1">
-                  <span className="lg:text-lg text-[0.5rem]">
+                <button className="lg:px-4 lg:py-2 px-2 py-1 lg:text-[1rem] text-[0.75rem] rounded-full font-semibold bg-zinc-700 hover:bg-zinc-600 flex items-center gap-1">
+                  <span className="lg:text-lg text-[0.75rem]">
                     <LiaDownloadSolid />
                   </span>
                   Download
@@ -252,7 +252,7 @@ const Watch = () => {
               </div>
             </div>
             <div>
-              <div className="lg:p-3 p-1 lg:mt-5 mt-2 rounded-lg bg-zinc-700  min-h-28 lg:mb-4 mb-1">
+              <div className="lg:p-3 p-1 lg:mt-5 mt-3 lg:rounded-lg bg-zinc-800  min-h-28 lg:mb-4 mb-1">
                <div className="flex lg:gap-3 gap-1 font-semibold">
                <h6 className="text-xs lg:text-[1rem]">{videoData?.statistics?.viewCount} views</h6>
                <h6 className="text-xs lg:text-[1rem]">{formatDate(videoData?.snippet?.publishedAt)}</h6>

@@ -1,7 +1,8 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import * as icons from './Imports'
-import { useSelector } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import { Link } from 'react-router-dom'
+import { toggleSidebar } from '../Features/SidebarSlice'
 
 
 const homeData = [
@@ -155,10 +156,32 @@ const toggleData = [
 const Sidebar = () => {
 
   const sidebarOpen = useSelector((store) => store.sidebar.isSidebarOpen)
+  const dispatch = useDispatch();
+
+   // Handle screen size change
+ useEffect(() => {
+  const handleResize = () => {
+    if (window.innerWidth <= 768) {
+      // Dispatch action to set sidebarOpen to false if screen size is mobile
+      dispatch(toggleSidebar(false)); // Ensure you have this action defined in your Redux setup
+    }
+  };
+
+  // Initial check on component mount
+  handleResize();
+
+  // Add event listener for resize
+  window.addEventListener('resize', handleResize);
+
+  // Cleanup event listener on unmount
+  return () => {
+    window.removeEventListener('resize', handleResize);
+  };
+}, [dispatch]);
 
   return (
    <>
-    <div className={`${sidebarOpen ? 'lg:w-[17%] w-[30%]' : 'lg:w-[7%] w-[9%]'} h-[96.5vh] fixed lg:pt-3  lg:mt-16 mt-5 bg-zinc-900 lg:pl-6 pl-1`}>
+    <div className={`${sidebarOpen ? 'lg:w-[17%] w-[30%]' : 'lg:w-[7%] w-[100%]'} lg:h-[96.5vh] h-[8vh] fixed bottom-0 lg:pt-10  lg:mt-20 mt-5 lg:border-none border-t-[1px] border-gray-500 bg-zinc-900 lg:pl-6 pl-1`}>
       {sidebarOpen ? <div className='scrollbar-thin scrollbar-thumb-zinc-600 scrollbar-track-zinc-900 scrollbar-thumb-rounded-full overflow-y-scroll overflow-x-hidden h-[96vh] relative left-0'>
       <div className='border-b-[1px] border-zinc-300 lg:py-4 pt-3'>
       {homeData.map((item, index) => {
@@ -209,11 +232,11 @@ const Sidebar = () => {
       </Link>
       })}
       </div>
-      </div> :   <div className='w-[6%]  lg:mt-20 mt-2  lg:px-6 px-1'>
+      </div> :   <div className='lg:w-[6%] w-full  flex lg:flex-col lg:gap-0 gap-7  lg:mt-20 mt-2  lg:px-6 px-1'>
     {toggleData.map((item, index) => {
       return <div key={index} className='flex flex-col items-center justify-center lg:mb-4 mb-2 p-1'>
-        <h1 className='lg:text-[1.3rem] text-xs text-center lg:mb-2 mb-1'>{item.logo}</h1>
-        <h6 className='lg:text-xs text-[0.35rem]'>{item.title}</h6>
+        <Link to={'/'} className='lg:text-[1.3rem] text-[1.1rem] text-center lg:mb-2 mb-1'>{item.logo}</Link>
+        <h6 className='text-xs'>{item.title}</h6>
       </div>
     })}
   </div>}
