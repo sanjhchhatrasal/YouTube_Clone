@@ -34,16 +34,16 @@ const VideoCard = ({ item }) => {
   return (
     <>
       {sidebar ? (
-        <div className="h-[23vw] w-[25vw]  overflow-hidden">
-          <div className="h-[60%] rounded-lg w-full bg-zinc-800 overflow-hidden">
+        <div className="lg:h-[23vw] lg:w-[25vw] h-[30vh] w-[40vw] overflow-hidden">
+          <div className="lg:h-[60%] h-[65%] rounded-lg w-full bg-zinc-800 overflow-hidden">
             <img
               className="h-full w-full hover:scale-105 transition ease-out duration-150 cursor-pointer object-cover"
               src={item.snippet.thumbnails.high.url}
               alt=""
             />
           </div>
-          <div className="flex gap-3 py-3 items-start">
-            <div className="h-10 w-10 rounded-full overflow-hidden bg-zinc-900">
+          <div className="flex lg:gap-3 gap-1 lg:py-3 py-1 items-start">
+            <div className="lg:h-10 lg:w-10 h-7 w-7 rounded-full overflow-hidden bg-zinc-900">
               <img
                 className="h-full w-full object-cover"
                 src={ytDp}
@@ -54,38 +54,38 @@ const VideoCard = ({ item }) => {
                 alt=""
               />
             </div>
-            <div className="w-[80%]">
-              <h1 className="text-lg font-semibold">
+            <div className="lg:w-[80%] w-[77%] ">
+              <h1 className="lg:text-lg text-[0.65rem] font-semibold">
                 {truncateTitle(item.snippet.title, 10)}
               </h1>
-              <h2 className="text-sm font-semibold text-gray-400 ">
+              <h2 className="lg:text-sm text-[0.6rem] font-semibold text-gray-400 ">
                 {item.snippet.channelTitle}
               </h2>
             </div>
           </div>
         </div>
       ) : (
-        <div className="h-[18vw] w-[20vw] overflow-hidden">
-          <div className="h-[60%] w-full rounded-lg bg-zinc-700 overflow-hidden">
+        <div className="lg:h-[18vw] h-[30vh] w-[44vw]  lg:w-[20vw] lg:m-0 overflow-hidden">
+          <div className="lg:h-[60%] h-[65%] w-full rounded-lg bg-zinc-700 overflow-hidden">
             <img
               className="h-full w-full object-cover"
               src={item.snippet.thumbnails.high.url}
               alt=""
             />
           </div>
-          <div className="flex gap-3 py-3 items-start">
-            <div className="h-10 w-10 rounded-full overflow-hidden bg-yellow-300">
+          <div className="flex lg:gap-3 gap-1 lg:py-3 py-1 items-start">
+            <div className="lg:h-10 lg:w-10 h-7 w-7 rounded-full overflow-hidden bg-zinc-800">
               <img
                 className="h-full w-full object-cover"
                 src="https://i.pinimg.com/236x/e2/f0/6c/e2f06c9101dc22814be2a2352f7dc871.jpg"
                 alt=""
               />
             </div>
-            <div className="w-[80%]">
-              <h1 className="text-lg font-semibold">
+            <div className="lg:w-[80%] w-[77%] ">
+              <h1 className="lg:text-lg text-[0.65rem] font-semibold">
                 {truncateTitle(item.snippet.title, 10)}
               </h1>
-              <h2 className="text-sm font-semibold text-gray-400  ">
+              <h2 className="lg:text-sm text-[0.6rem] font-semibold text-gray-400  ">
                 {item.snippet.channelTitle}
               </h2>
             </div>

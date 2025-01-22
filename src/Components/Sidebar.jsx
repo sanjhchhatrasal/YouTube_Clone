@@ -158,62 +158,62 @@ const Sidebar = () => {
 
   return (
    <>
-    <div className={`${sidebarOpen ? 'w-[17%]' : 'w-[8%]'} h-[93vh] fixed pt-3  mt-16 bg-zinc-900 pl-6`}>
-      {sidebarOpen ? <div className='scrollbar-thin scrollbar-thumb-zinc-600 scrollbar-track-zinc-900 scrollbar-thumb-rounded-full overflow-y-scroll overflow-x-hidden h-[92vh] relative left-0'>
-      <div className='border-b-[1px] border-zinc-300 py-4'>
+    <div className={`${sidebarOpen ? 'lg:w-[17%] w-[30%]' : 'lg:w-[7%] w-[9%]'} h-[96.5vh] fixed lg:pt-3  lg:mt-16 mt-5 bg-zinc-900 lg:pl-6 pl-1`}>
+      {sidebarOpen ? <div className='scrollbar-thin scrollbar-thumb-zinc-600 scrollbar-track-zinc-900 scrollbar-thumb-rounded-full overflow-y-scroll overflow-x-hidden h-[96vh] relative left-0'>
+      <div className='border-b-[1px] border-zinc-300 lg:py-4 pt-3'>
       {homeData.map((item, index) => {
-        return <Link to={'/'} key={index} className='flex items-start gap-4 hover:bg-zinc-800 rounded-lg px-2 py-1'>
-        <h1 className='text-xl mb-3'>{item.logo}</h1>
-        <h1>{item.title}</h1>
+        return <Link to={'/'} key={index} className='flex items-start lg:gap-4 gap-2 hover:bg-zinc-800 rounded-lg lg:px-2 px-1 lg:py-1'>
+        <h1 className='lg:text-xl text-xs mb-3'>{item.logo}</h1>
+        <h1 className='text-xs lg:text-[1rem]'>{item.title}</h1>
       </Link>
       })}
       </div>
-      <div className='border-b-[1px] border-zinc-300 py-4'>
-        <h1 className='text-lg mb-3 flex gap-3 items-center'>You <span className='text-xl'><icons.MdKeyboardArrowRight /></span></h1>
+      <div className='border-b-[1px] border-zinc-300 lg:py-4 py-1'>
+        <h1 className='lg:text-lg text-xs lg:mb-3 mb-1 flex lg:gap-3 gap-1 items-center'>You <span className='lg:text-xl text-xs'><icons.MdKeyboardArrowRight /></span></h1>
         {youData.map((item, index) => {
           return <div key={index}>
-            <Link className='flex items-start gap-3 hover:bg-zinc-800 rounded-lg px-2 py-1'>
-            <h1 className='text-[1.4rem] mb-4'>{item.logo}</h1>
-            <h1>{item.title}</h1>
+            <Link className='flex items-start lg:gap-3 gap-2 hover:bg-zinc-800 rounded-lg px-2 lg:py-1'>
+            <h1 className='lg:text-xl text-xs lg:mb-3 mb-2'>{item.logo}</h1>
+            <h1 className='text-xs lg:text-[1rem]'>{item.title}</h1>
           </Link>
           </div>
         })}
       </div>
-      <div className='border-b-[1px] border-zinc-300 py-4'>
-        <h1 className='text-lg mb-3 flex gap-3 items-center'>Subscriptions <span className='text-xl'><icons.MdKeyboardArrowRight /></span></h1>
+      <div className='border-b-[1px] border-zinc-300 lg:py-4 py-1'>
+        <h1 className='lg:text-lg text-xs lg:mb-3 mb-1 flex lg:gap-3 gap-1 items-center'>Subscriptions <span className='lg:text-xl text-xs'><icons.MdKeyboardArrowRight /></span></h1>
         {subscriptionData.map((item, index) => {
           return <div key={index}>
-            <Link className='flex items-start gap-4 hover:bg-zinc-800 rounded-lg px-2 py-1'>
-            <h1 className='text-[1.35rem] mb-4'>{item.logo}</h1>
-            <h1>{item.title}</h1>
+            <Link className='flex items-start lg:gap-4 gap-2 hover:bg-zinc-800 rounded-lg px-2 lg:py-1'>
+            <h1 className='lg:text-xl text-xs mb-3'>{item.logo}</h1>
+            <h1 className='text-xs lg:text-[0.9rem]'>{item.title}</h1>
           </Link>
           </div>
         })}
       </div>
-      <div className='border-b-[1px] border-zinc-300 py-4'>
-        <h1 className='text-lg mb-3 flex gap-3 items-center'>Explore <span className='text-xl'><icons.MdKeyboardArrowRight /></span></h1>
+      <div className='border-b-[1px] border-zinc-300 lg:py-4 py-1'>
+        <h1 className='lg:text-lg text-xs lg:mb-3 mb-1 flex lg:gap-3 gap-1 items-center'>Explore <span className='lg:text-xl text-xs'><icons.MdKeyboardArrowRight /></span></h1>
         {exploreData.map((item, index) => {
           return <div key={index}>
-            <Link className='flex items-start gap-4 hover:bg-zinc-800 rounded-lg px-2 py-1'>
-            <h1 className='text-[1.35rem] mb-4'>{item.logo}</h1>
-            <h1>{item.title}</h1>
+            <Link className='flex items-start gap-4 hover:bg-zinc-800 rounded-lg px-2 lg:py-1'>
+            <h1 className='lg:text-xl text-xs lg:mb-3 mb-2'>{item.logo}</h1>
+            <h1 className='text-xs lg:text-[1rem]'>{item.title}</h1>
           </Link>
           </div>
         })}
       </div>
-      <div className=' py-4'>
+      <div className=' lg:py-4 py-1'>
       {settingData.map((item, index) => {
-        return <Link key={index} className='flex items-start gap-4 hover:bg-zinc-800 rounded-lg px-2 py-1'>
-        <h1 className='text-xl mb-3'>{item.logo}</h1>
-        <h1>{item.title}</h1>
+        return <Link key={index} className='flex items-start gap-4 hover:bg-zinc-800 rounded-lg px-2 lg:py-1'>
+        <h1 className='lg:text-xl text-xs lg:mb-3 mb-2'>{item.logo}</h1>
+        <h1 className='text-xs lg:text-[1rem]'>{item.title}</h1>
       </Link>
       })}
       </div>
-      </div> :   <div className='w-[6%]  mt-20  px-6'>
+      </div> :   <div className='w-[6%]  lg:mt-20 mt-2  lg:px-6 px-1'>
     {toggleData.map((item, index) => {
-      return <div key={index} className='flex flex-col items-center justify-center mb-4'>
-        <h1 className='text-[1.3rem] text-center mb-2'>{item.logo}</h1>
-        <h6 className='text-xs'>{item.title}</h6>
+      return <div key={index} className='flex flex-col items-center justify-center lg:mb-4 mb-2 p-1'>
+        <h1 className='lg:text-[1.3rem] text-xs text-center lg:mb-2 mb-1'>{item.logo}</h1>
+        <h6 className='lg:text-xs text-[0.35rem]'>{item.title}</h6>
       </div>
     })}
   </div>}

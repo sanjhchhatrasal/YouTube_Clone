@@ -41,7 +41,7 @@ const Videos = () => {
   }, [category]);
 
   return (
-    <div className="text-4xl flex flex-wrap gap-5 min-h-[100vh] ">
+    <div className="lg:text-4xl flex flex-wrap lg:gap-5 gap-1  min-h-[100vh] ">
       {videos.map((item) => {
         return (
           <Link to={`/watch?v=${typeof item.id === "object" ? item.id.videoId : item.id }`} key={typeof item.id === "object" ? item.id.videoId : item.id }>

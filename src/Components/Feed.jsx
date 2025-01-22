@@ -9,12 +9,12 @@ const Feed = () => {
   return (
     <>
       {sidebarOpen ? (
-        <div className="scrollbar scrollbar-thumb-zinc-600 scrollbar-track-zinc-900 overflow-y-scroll w-[83%]  h-[91.3vh]  mt-16 ml-[18%]">
+        <div className="scrollbar scrollbar-thumb-zinc-600 scrollbar-track-zinc-900 overflow-y-scroll w-[83%]   lg:h-[91.3vh] h-[96.4vh]  lg:mt-16 mt-6 ml-[18%]">
           <ButtonList />
           <Videos />
         </div>
       ) : (
-        <div className="scrollbar scrollbar-thumb-zinc-600 scrollbar-track-zinc-900 overflow-y-scroll w-[100%] h-[91.3vh] mt-16 ml-[10%]">
+        <div className="scrollbar scrollbar-thumb-zinc-600 scrollbar-track-zinc-900 overflow-y-scroll w-[100%] lg:h-[91.3vh] h-[96.4vh] lg:mt-16 mt-6 ml-[10%]">
           <ButtonList />
           <Videos />
         </div>
