@@ -19,9 +19,9 @@ const ButtonList = () => {
   console.log(active)
 
   return (
-    <div className='lg:py-5 py-2 lg:mt-0 mt-1 flex flex-shrink-0 w-full overflow-x-auto no-scrollbar'>
+    <div className='sm:py-5 py-2 sm:mt-0 mt-1 flex flex-shrink-0 w-full overflow-x-auto no-scrollbar'>
         {btnData.map((item, index) => {
-            return <div  key={index}><NavLink onClick={() => {videoByTag(item)}}  className={` lg:px-3 px-2 lg:py-1 py-1 w-fit lg:mx-2 mx-1 rounded-lg ${active === item ?  "bg-gray-200" : "bg-zinc-800"} ${active === item ?  "text-zinc-800" : "text-gray-200"}  font-semibold`}><span className='whitespace-nowrap text-sm lg:text-[1rem]'>{item}</span></NavLink></div> 
+            return <div  key={index}><NavLink onClick={() => {videoByTag(item)}}  className={` sm:px-3 px-2 sm:py-1 py-1 w-fit sm:mx-2 mx-1 rounded-lg ${active === item ?  "bg-gray-200" : "bg-zinc-800"} ${active === item ?  "text-zinc-800" : "text-gray-200"}  font-semibold`}><span className='whitespace-nowrap text-sm lg:text-[1rem]'>{item}</span></NavLink></div> 
         })}
     </div>
   )

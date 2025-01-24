@@ -181,61 +181,61 @@ const Sidebar = () => {
 
   return (
    <>
-    <div className={`${sidebarOpen ? 'lg:w-[17%] w-[30%]' : 'lg:w-[7%] w-[100%]'} lg:h-[96.5vh] h-[8vh] fixed bottom-0 lg:pt-10  lg:mt-20 mt-5 lg:border-none border-t-[1px] border-gray-500 bg-zinc-900 lg:pl-6 pl-1`}>
+    <div className={`${sidebarOpen ? 'lg:w-[17%] md:w-[25%] w-[30%]' : 'md:w-[7%] w-[100%]'} md:h-[96.5vh] h-[8vh] fixed bottom-0 md:pt-10  md:mt-20 mt-5 md:border-none border-t-[1px] border-gray-500 bg-zinc-900 md:pl-6 pl-1`}>
       {sidebarOpen ? <div className='scrollbar-thin scrollbar-thumb-zinc-600 scrollbar-track-zinc-900 scrollbar-thumb-rounded-full overflow-y-scroll overflow-x-hidden h-[96vh] relative left-0'>
-      <div className='border-b-[1px] border-zinc-300 lg:py-4 pt-3'>
+      <div className='border-b-[1px] border-zinc-300 md:py-4 pt-3'>
       {homeData.map((item, index) => {
-        return <Link to={'/'} key={index} className='flex items-start lg:gap-4 gap-2 hover:bg-zinc-800 rounded-lg lg:px-2 px-1 lg:py-1'>
-        <h1 className='lg:text-xl text-xs mb-3'>{item.logo}</h1>
-        <h1 className='text-xs lg:text-[1rem]'>{item.title}</h1>
+        return <Link to={'/'} key={index} className='flex items-start md:gap-4 gap-2 hover:bg-zinc-800 rounded-lg md:px-2 px-1 md:py-1'>
+        <h1 className='md:text-xl text-xs mb-3'>{item.logo}</h1>
+        <h1 className='text-xs md:text-[1rem]'>{item.title}</h1>
       </Link>
       })}
       </div>
-      <div className='border-b-[1px] border-zinc-300 lg:py-4 py-1'>
-        <h1 className='lg:text-lg text-xs lg:mb-3 mb-1 flex lg:gap-3 gap-1 items-center'>You <span className='lg:text-xl text-xs'><icons.MdKeyboardArrowRight /></span></h1>
+      <div className='border-b-[1px] border-zinc-300 md:py-4 py-1'>
+        <h1 className='md:text-lg text-xs md:mb-3 mb-1 flex md:gap-3 gap-1 items-center'>You <span className='md:text-xl text-xs'><icons.MdKeyboardArrowRight /></span></h1>
         {youData.map((item, index) => {
           return <div key={index}>
-            <Link className='flex items-start lg:gap-3 gap-2 hover:bg-zinc-800 rounded-lg px-2 lg:py-1'>
-            <h1 className='lg:text-xl text-xs lg:mb-3 mb-2'>{item.logo}</h1>
-            <h1 className='text-xs lg:text-[1rem]'>{item.title}</h1>
+            <Link className='flex items-start md:gap-3 gap-2 hover:bg-zinc-800 rounded-lg px-2 md:py-1'>
+            <h1 className='md:text-xl text-xs md:mb-3 mb-2'>{item.logo}</h1>
+            <h1 className='text-xs md:text-[1rem]'>{item.title}</h1>
           </Link>
           </div>
         })}
       </div>
-      <div className='border-b-[1px] border-zinc-300 lg:py-4 py-1'>
-        <h1 className='lg:text-lg text-xs lg:mb-3 mb-1 flex lg:gap-3 gap-1 items-center'>Subscriptions <span className='lg:text-xl text-xs'><icons.MdKeyboardArrowRight /></span></h1>
+      <div className='border-b-[1px] border-zinc-300 md:py-4 py-1'>
+        <h1 className='md:text-lg text-xs md:mb-3 mb-1 flex md:gap-3 gap-1 items-center'>Subscriptions <span className='md:text-xl text-xs'><icons.MdKeyboardArrowRight /></span></h1>
         {subscriptionData.map((item, index) => {
           return <div key={index}>
-            <Link className='flex items-start lg:gap-4 gap-2 hover:bg-zinc-800 rounded-lg px-2 lg:py-1'>
-            <h1 className='lg:text-xl text-xs mb-3'>{item.logo}</h1>
-            <h1 className='text-xs lg:text-[0.9rem]'>{item.title}</h1>
+            <Link className='flex items-start md:gap-4 gap-2 hover:bg-zinc-800 rounded-lg px-2 md:py-1'>
+            <h1 className='md:text-xl text-xs mb-3'>{item.logo}</h1>
+            <h1 className='text-xs md:text-[0.9rem]'>{item.title}</h1>
           </Link>
           </div>
         })}
       </div>
-      <div className='border-b-[1px] border-zinc-300 lg:py-4 py-1'>
-        <h1 className='lg:text-lg text-xs lg:mb-3 mb-1 flex lg:gap-3 gap-1 items-center'>Explore <span className='lg:text-xl text-xs'><icons.MdKeyboardArrowRight /></span></h1>
+      <div className='border-b-[1px] border-zinc-300 md:py-4 py-1'>
+        <h1 className='md:text-lg text-xs md:mb-3 mb-1 flex md:gap-3 gap-1 items-center'>Explore <span className='md:text-xl text-xs'><icons.MdKeyboardArrowRight /></span></h1>
         {exploreData.map((item, index) => {
           return <div key={index}>
-            <Link className='flex items-start gap-4 hover:bg-zinc-800 rounded-lg px-2 lg:py-1'>
-            <h1 className='lg:text-xl text-xs lg:mb-3 mb-2'>{item.logo}</h1>
-            <h1 className='text-xs lg:text-[1rem]'>{item.title}</h1>
+            <Link className='flex items-start gap-4 hover:bg-zinc-800 rounded-lg px-2 md:py-1'>
+            <h1 className='md:text-xl text-xs md:mb-3 mb-2'>{item.logo}</h1>
+            <h1 className='text-xs md:text-[1rem]'>{item.title}</h1>
           </Link>
           </div>
         })}
       </div>
-      <div className=' lg:py-4 py-1'>
+      <div className=' md:py-4 py-1'>
       {settingData.map((item, index) => {
-        return <Link key={index} className='flex items-start gap-4 hover:bg-zinc-800 rounded-lg px-2 lg:py-1'>
-        <h1 className='lg:text-xl text-xs lg:mb-3 mb-2'>{item.logo}</h1>
-        <h1 className='text-xs lg:text-[1rem]'>{item.title}</h1>
+        return <Link key={index} className='flex items-start gap-4 hover:bg-zinc-800 rounded-lg px-2 md:py-1'>
+        <h1 className='md:text-xl text-xs md:mb-3 mb-2'>{item.logo}</h1>
+        <h1 className='text-xs md:text-[1rem]'>{item.title}</h1>
       </Link>
       })}
       </div>
-      </div> :   <div className='lg:w-[6%] w-full  flex lg:flex-col lg:gap-0 gap-7  lg:mt-20 mt-2  lg:px-6 px-1'>
+      </div> :   <div className='md:w-[6%] w-full  flex md:flex-col md:gap-0 gap-7  md:mt-20 mt-2  md:px-6 px-1'>
     {toggleData.map((item, index) => {
-      return <div key={index} className='flex flex-col items-center justify-center lg:mb-4 mb-2 p-1'>
-        <Link to={'/'} className='lg:text-[1.3rem] text-[1.1rem] text-center lg:mb-2 mb-1'>{item.logo}</Link>
+      return <div key={index} className='flex flex-col items-center justify-center md:mb-4 mb-2 p-1'>
+        <Link to={'/'} className='md:text-[1.3rem] text-[1.1rem] text-center md:mb-2 mb-1'>{item.logo}</Link>
         <h6 className='text-xs'>{item.title}</h6>
       </div>
     })}
